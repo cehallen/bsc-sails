@@ -1,10 +1,13 @@
-<h1>Edit Sail</h1>
+<h1>Edit Sail  |  
+<%= link_to "Delete", sail_path(@sail),
+          method: :delete %></h1>
 
 <%= simple_form_for @sail do |f| %>
   <%= f.input :title %>
   <%= f.date_select :when %>
   <%= f.input :details, as: :text %>
 <% end %>
+
 
 <p><%= link_to "Back to Sails", sails_path %></p>
 
