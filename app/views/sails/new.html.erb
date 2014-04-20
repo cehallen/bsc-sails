@@ -1,9 +1,10 @@
 <h1>New Sail</h1>
 
 <%= simple_form_for @sail do |f| %>
-  <%= f.input :title %>
-  <%= f.date_select :when %>
+  <%= f.input :title, input_html: { size: 34 }%>
+  <%= f.text_field :when, label: 'When' %>
   <%= f.input :details, as: :text %>
+  <%= f.submit %>
 <% end %>
 
 <p><%= link_to "Back to Sails", sails_path %></p>

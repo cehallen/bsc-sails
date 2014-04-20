@@ -4,8 +4,9 @@
 
 <%= simple_form_for @sail do |f| %>
   <%= f.input :title %>
-  <%= f.date_select :when %>
+  <%= f.text_field :when %>
   <%= f.input :details, as: :text %>
+  <%= f.submit %>
 <% end %>
 
 

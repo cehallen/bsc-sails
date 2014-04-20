@@ -2,6 +2,7 @@
 
 <p class="info">Created on <%= @sail.created_at.strftime("%B %e, %Y") %></p>
 
+<%= simple_format @sail.when.strftime("%B %e, %Y") %>
 <%= simple_format @sail.details %>
 
 <p>

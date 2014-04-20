@@ -3,7 +3,7 @@
 <div id="sails">
   <% @sails.each do |sail| %>
     <h2><%= link_to sail.title, sail %></h2>
-    <p class="info">Created on <%= sail.created_at.strftime("%B %e, %Y") %></p>
+    <p class="info">Date of Sail <%= sail.when.strftime("%B %e, %Y") %></p>
     <%= simple_format sail.details %>
     <p><%= link_to "Edit Sail", edit_sail_path(sail) %></p>
   <% end %>

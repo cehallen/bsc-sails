@@ -4,7 +4,7 @@ class SailsController < ApplicationController
   end
 
   def show
-    @sail = Sails.find(params[:id])
+    @sail = Sail.find(params[:id])
   end
 
   def new
@@ -12,9 +12,9 @@ class SailsController < ApplicationController
   end
 
   def create
-    @sail = Sail.new(params[:sail])
+    @sail = Sail.new(sail_params)
     if @sail.save
-      redirect_to @sail, notice: "Created sail."
+      redirect_to sails_path, notice: "Created sail.  Please ensure you provided, at minimum, contact details and a time."
     else
       render :new
     end
@@ -26,7 +26,7 @@ class SailsController < ApplicationController
 
   def update
     @sail = Sail.find(params[:id])
-    if @sail.update_attributes(params[:sail])
+    if @sail.update(sail_params)
       redirect_to @sail, notice: "Updated sail."
     else
       render :edit
@@ -41,5 +41,12 @@ class SailsController < ApplicationController
         notice: 'Deleted successfully' }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def sail_params
+    params.require(:sail)
+      .permit(:title, :when, :details)
   end
 end
