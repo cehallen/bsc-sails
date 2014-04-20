@@ -12,8 +12,8 @@ class SailsController < ApplicationController
   end
 
   def create
-    @sail = Sail.new(params[:article])
-    if @article.save
+    @sail = Sail.new(params[:sail])
+    if @sail.save
       redirect_to @sail, notice: "Created sail."
     else
       render :new

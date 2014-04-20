@@ -1,0 +1,10 @@
+<h1>Edit Sail</h1>
+
+<%= simple_form_for @sail do |f| %>
+  <%= f.input :title %>
+  <%= f.date_select :when %>
+  <%= f.input :details, as: :text %>
+<% end %>
+
+<p><%= link_to "Back to Sails", sails_path %></p>
+
