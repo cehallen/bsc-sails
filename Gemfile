@@ -16,7 +16,7 @@ end
 gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
-# gem 'devise'
+gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails'

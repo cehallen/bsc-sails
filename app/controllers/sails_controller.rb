@@ -22,7 +22,7 @@ class SailsController < ApplicationController
   def create
     @sail = Sail.new(sail_params)
     if @sail.save
-      redirect_to sails_path, notice: "Created sail.  Please ensure you provided, at minimum, contact details and a time."
+      redirect_to @sail, notice: "Created sail.  Please ensure you provided, at minimum, contact details and a time."
     else
       render :new
     end
