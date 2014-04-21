@@ -21,6 +21,7 @@ class SailsController < ApplicationController
 
   def create
     @sail = Sail.new(sail_params)
+    @sail.user = current_user
     if @sail.save
       redirect_to @sail, notice: "Created sail.  Please ensure you provided, at minimum, contact details and a time."
     else
@@ -30,6 +31,9 @@ class SailsController < ApplicationController
 
   def edit
     @sail = Sail.find(params[:id])
+    if @sail.user != current_user
+      redirect_to @sail, notice: "Sorry you can't edit other people's sails"
+    end
   end
 
   def update
