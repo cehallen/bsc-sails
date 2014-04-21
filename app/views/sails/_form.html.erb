@@ -1,0 +1,28 @@
+<%= form_for @sail do |f| %>
+  <% if @sail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sail.errors.count, "error") %> prohibited this sail from being saved:</h2>
+      <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :when %><br />
+    <%= f.text_field :when %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br />
+    <%= f.text_area :details %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

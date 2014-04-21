@@ -1,7 +1,15 @@
 class SailsController < ApplicationController
   def index
     @sails = Sail.all
+    @sails_by_date = @sails.group_by(&:when)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
+
+  # def index
+  #   @articles = Article.all
+  #   @articles_by_date = @articles.group_by(&:published_on)
+  #   @date = params[:date] ? Date.parse(params[:date]) : Date.today
+  # end
 
   def show
     @sail = Sail.find(params[:id])

@@ -2,13 +2,7 @@
 <%= link_to "Delete", sail_path(@sail),
           method: :delete %></h1>
 
-<%= simple_form_for @sail do |f| %>
-  <%= f.input :title %>
-  <%= f.input :details, as: :text %>
-  <%= f.text_field :when, placeholder: 'Date of sail' %>
-  <%= f.submit %>
-<% end %>
-
+<%= render 'form' %>
 
 <p><%= link_to "Back to Sails", sails_path %></p>
 

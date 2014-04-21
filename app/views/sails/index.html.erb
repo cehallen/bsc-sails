@@ -1,12 +1,24 @@
-<h1>Sails</h1>
+<div id="header"><h2>Boston Sailing Center Sails</h2></div>
+<div id="logo"><%= image_tag("sail-logo.jpg") %></div><br>
 
 <div id="sails">
-  <% @sails.each do |sail| %>
-    <h2><%= link_to sail.title, sail %></h2>
-    <p class="info">Date of Sail <%= sail.when.strftime("%B %e, %Y") %></p>
-    <%= simple_format sail.details %>
-    <p><%= link_to "Edit Sail", edit_sail_path(sail) %></p>
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @sails_by_date[date] %>
+      <ul>
+        <% @sails_by_date[date].each do |sail| %>
+          <li><%= link_to sail.title, sail %></li>
+        <% end %>
+      </ul>
+    <% end %>
   <% end %>
 </div>
 
+
 <p><%= link_to "New Sail", new_sail_path %></p>
+

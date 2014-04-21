@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+
 group :doc do
   gem 'sdoc', require: false
 end
@@ -15,6 +16,7 @@ end
 gem 'simple_form'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+# gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails'
