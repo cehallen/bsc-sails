@@ -27,3 +27,8 @@ group :test, :development do
   gem 'launchy'
   gem 'capybara'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
+
