@@ -1,13 +1,10 @@
 <%= form_for @sail do |f| %>
-  <% if @sail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sail.errors.count, "error") %> prohibited this sail from being saved:</h2>
-      <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+  <% if @sail.errors.full_messages.count > 0 %>
+    <ul>
+      <% @sail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
   <% end %>
 
   <div class="field">
